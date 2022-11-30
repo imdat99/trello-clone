@@ -8,9 +8,9 @@ const initialState = {
   currColIdToEdit: "",
   isDialogOpen: false,
 };
-
+export const namespace = "TASK";
 export const taskSlice = createSlice({
-  name: "task",
+  name: namespace,
   initialState,
   reducers: {
     /* Default reducers start */
@@ -49,4 +49,7 @@ export const {
   setAllColumns,
   setColumnOrder,
 } = taskSlice.actions;
-export default taskSlice.reducer;
+
+export const taskStore = (store) => store[namespace];
+const taskReducer = { namespace, reducer: taskSlice.reducer };
+export default taskReducer;
