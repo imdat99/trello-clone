@@ -6,3 +6,25 @@
   flex: 0 0 25%;
   max-width: 25%;
 }
+.column-container {
+  padding: 10px;
+}
+.column-content {
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+}
+.column-header {
+  margin-bottom: 5px;
+  font-weight: 600;
+  padding: 5px;
+  border-bottom: 1px solid;
+}
+.task {
+  background-color: #d1d1d1;
+  border-radius: 5px;
+  padding: 5px;
+}
+.task:not(:last-child) {
+  margin-bottom: 10px;
+}
