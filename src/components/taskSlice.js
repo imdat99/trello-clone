@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   tasks: {},
@@ -10,26 +10,43 @@ const initialState = {
 };
 
 export const taskSlice = createSlice({
-  name: 'task',
+  name: "task",
   initialState,
   reducers: {
     /* Default reducers start */
     // Sets "currTaskIdToEdit" to the id of the current task being edited
     setCurrTaskIdToEdit: (state, action) => {
-      state.currTaskIdToEdit = action.payload.taskId
+      state.currTaskIdToEdit = action.payload.taskId;
     },
     // Sets "currColIdToEdit" to the id of the current column in which the task is being edited
     setCurrColIdToEdit: (state, action) => {
-      state.currColIdToEdit = action.payload.currTaskColId
+      state.currColIdToEdit = action.payload.currTaskColId;
     },
     // Changes the state of the edit dialog box between open and close
     setDialogStatus: (state, action) => {
-      state.isDialogOpen = action.payload
+      state.isDialogOpen = action.payload;
     },
     /* Default reducers end */
 
     // Add new reducers here
+    setAllTasks: (state, action) => {
+      state.tasks = action.payload;
+    },
+    setAllColumns: (state, action) => {
+      state.columns = action.payload;
+    },
+    setColumnOrder: (state, action) => {
+      state.columnOrder = action.payload;
+    },
   },
 });
 
+export const {
+  setCurrTaskIdToEdit,
+  setCurrColIdToEdit,
+  setDialogStatus,
+  setAllTasks,
+  setAllColumns,
+  setColumnOrder,
+} = taskSlice.actions;
 export default taskSlice.reducer;
